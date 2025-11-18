@@ -1,0 +1,27 @@
+version: 2
+
+sources:
+  - name: sales_source             # This is the 'alias' you use in {{ source('sales_source', ...) }}
+    description: "Raw sales data from the Databricks ingestion layer"
+    database: neil_test_catalog    # The top-level Catalog in Databricks
+    schema: dbt_dev                # The Schema (Database in some dialects)
+    
+    tables:
+      - name: raw_customers
+        description: "List of customers with PII (email)"
+        columns:
+          - name: id
+            tests: 
+              - unique
+              - not_null
+
+      - name: raw_orders
+        description: "Transactional order records"
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
+          - name: user_id
+            tests:
+              - not_null
