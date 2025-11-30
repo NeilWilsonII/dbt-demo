@@ -5,6 +5,7 @@
 with customers as (
     -- calling the source defined in your .yml file
     select * from {{ source('sales_source', 'raw_customers') }}
+    LIMIT 1
 ),
 
 orders as (
