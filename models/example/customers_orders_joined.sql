@@ -31,4 +31,12 @@ customer_orders as (
 
 )
 
-select * from customer_orders
+select
+    customer_id,
+    first_name,
+    last_name as last_nam,
+    order_id,
+    order_date,
+    status,
+    -- Handle nulls for customers with no orders
+    amount from customer_orders

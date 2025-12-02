@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: customers_orders_joined # This must match your filename (without .sql)
+    description: "Joined customer and order data"
+    columns:
+      - name: first_name
+        description: "The customer's first name"
+        tests:
+          - not_null
+          # You can also add other tests like unique:
+          # - unique
