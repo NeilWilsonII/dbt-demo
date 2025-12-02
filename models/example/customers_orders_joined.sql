@@ -17,7 +17,7 @@ customer_orders as (
     select
         customers.id as customer_id,
         customers.first_name,
-        customers.last_name,
+        customers.last_nam,
         orders.id as order_id,
         orders.order_date,
         orders.status,
